@@ -1,0 +1,794 @@
+[
+  {
+    "id": "cookware-set",
+    "slug": "cookware-set",
+    "filename": "produto.png",
+    "title": "Berlinger Haus 15-Piece Titan Pro Non-Stick Cookware Set",
+    "subtitle": "Heavy-Duty Die-Cast Aluminium with Triple-Layer Titanium Coating",
+    "solution": "Complete professional non-stick cookware set with tempered glass lids and cool-touch ergonomic handles.",
+    "price": 97,
+    "original_price": 2499,
+    "discount": "-96%",
+    "image": "produto.png",
+    "gallery": [
+      "produto.png",
+      "p1.png",
+      "p2.png",
+      "p3.png",
+      "p4.png"
+    ],
+    "category": "Kitchen & Home",
+    "badge": "Black November Super Deal",
+    "rating": 4.9,
+    "reviewsCount": 482,
+    "stock": 14,
+    "active": true,
+    "variants": [
+      {
+        "name": "Antracit",
+        "color": "#374151",
+        "img": "https://media.takealot.com/covers_images/f25083c50eee4bf1a854dadfa44c8e7f/s-zoom.file"
+      },
+      {
+        "name": "Black Rose",
+        "color": "#1f2937",
+        "img": "https://media.takealot.com/covers_images/c210be462b5b4e1caac1c0120e43f2ec/s-zoom.file"
+      },
+      {
+        "name": "Deep Sea",
+        "color": "#1e3a8a",
+        "img": "https://media.takealot.com/covers_images/7c428cd8616f4d38be9e31f44fd7c980/s-zoom.file"
+      },
+      {
+        "name": "Green",
+        "color": "#15803d",
+        "img": "https://media.takealot.com/covers_images/5d245f0b3bbf47d9a60729dbd5bcedb1/s-zoom.file"
+      },
+      {
+        "name": "Leonardo",
+        "color": "#b91c1c",
+        "img": "https://media.takealot.com/covers_images/843581b6e4004c2eaf3a6e273526254f/s-zoom.file"
+      },
+      {
+        "name": "Matt Black",
+        "color": "#111827",
+        "img": "https://media.takealot.com/covers_images/d682e0a081544643a08b3423c824f8ee/s-zoom.file"
+      },
+      {
+        "name": "Sahara",
+        "color": "#d97706",
+        "img": "https://media.takealot.com/covers_images/55946b9e80f24b0b880dc6fe795dc4d7/s-zoom.file"
+      },
+      {
+        "name": "Taupe",
+        "color": "#78716c",
+        "img": "https://media.takealot.com/covers_images/5be4f6df851346168d4e050d860e073a/s-zoom.file"
+      }
+    ],
+    "fallback_image": "produto.png"
+  },
+  {
+    "id": "welder-inverter-250a",
+    "slug": "welder-250a-igbt",
+    "filename": "01_Welder_Inverter_250A_IGBT_R699.jpg",
+    "title": "250A Portable Digital IGBT Inverter Welder",
+    "subtitle": "Compact 220V ARC Welder with Smart Digital Display & Overheat Protection",
+    "solution": "Weld sliding gates, burglar bars, and palisades on a standard 220V household plug without hiring expensive contractors.",
+    "price": 699,
+    "original_price": 2899,
+    "discount": "-76%",
+    "image": "images/products/01_Welder_Inverter_250A_IGBT_R699.jpg",
+    "fallback_image": "images/products/01_Welder_Inverter_250A_IGBT_R699.jpg",
+    "category": "DIY & Power Tools",
+    "badge": "Black November Deal - Save R 2,200",
+    "rating": 4.9,
+    "reviewsCount": 384,
+    "stock": 19,
+    "active": true,
+    "variants": [
+      {
+        "name": "Standard Inox 250A",
+        "color": "#f59e0b",
+        "img": "images/products/01_Welder_Inverter_250A_IGBT_R699.jpg"
+      },
+      {
+        "name": "Pro Heavy-Duty Yellow",
+        "color": "#eab308",
+        "img": "images/products/01_Welder_Inverter_250A_IGBT_R699.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cordless-pressure-washer-48v",
+    "slug": "cordless-pressure-washer-48v",
+    "filename": "02_Cordless_Pressure_Washer_48V_R499.jpg",
+    "title": "48V Cordless High Pressure Washer (45 Bar)",
+    "subtitle": "Self-Priming Foam Cannon Gun with 2x Rechargeable Lithium Batteries",
+    "solution": "Self-priming: Draw water directly from a bucket or JoJo tank without taps. Ideal for washing bakkies, roofs, and patios.",
+    "price": 499,
+    "original_price": 2299,
+    "discount": "-78%",
+    "image": "images/products/02_Cordless_Pressure_Washer_48V_R499.jpg",
+    "fallback_image": "images/products/02_Cordless_Pressure_Washer_48V_R499.jpg",
+    "category": "Garden & Outdoor",
+    "badge": "Black November Deal - Save R 1,800",
+    "rating": 4.8,
+    "reviewsCount": 298,
+    "stock": 23,
+    "active": true,
+    "variants": [
+      {
+        "name": "Complete Kit (2x 48V Batteries)",
+        "color": "#10b981",
+        "img": "images/products/02_Cordless_Pressure_Washer_48V_R499.jpg"
+      },
+      {
+        "name": "Pro Tactical Black Kit",
+        "color": "#1f2937",
+        "img": "images/products/02_Cordless_Pressure_Washer_48V_R499.jpg"
+      }
+    ]
+  },
+  {
+    "id": "german-granite-cookware-16p",
+    "slug": "german-granite-cookware-16p",
+    "filename": "03_German_Granite_Cookware_16P_R597.jpg",
+    "title": "16-Piece German Granite Non-Stick Cookware",
+    "subtitle": "Ultra-Durable Granite Stone Coating with Tempered Aroma Glass Lids",
+    "solution": "Heavy-duty German non-stick granite cookware with glass lids. Perfect for large family stews, pap, and braises.",
+    "price": 97,
+    "original_price": 3499,
+    "discount": "-97%",
+    "image": "images/products/03_German_Granite_Cookware_16P_R597.jpg",
+    "fallback_image": "images/products/03_German_Granite_Cookware_16P_R597.jpg",
+    "category": "Kitchen & Home",
+    "badge": "German Engineering - 83% OFF",
+    "rating": 4.9,
+    "reviewsCount": 512,
+    "stock": 16,
+    "active": true,
+    "variants": [
+      {
+        "name": "Granite Charcoal Grey",
+        "color": "#4b5563",
+        "img": "images/products/03_German_Granite_Cookware_16P_R597.jpg"
+      },
+      {
+        "name": "Granite Ruby Red",
+        "color": "#991b1b",
+        "img": "images/products/03_German_Granite_Cookware_16P_R597.jpg"
+      },
+      {
+        "name": "Granite Marble Black",
+        "color": "#111827",
+        "img": "images/products/03_German_Granite_Cookware_16P_R597.jpg"
+      }
+    ]
+  },
+  {
+    "id": "master-toolkit-128p-impact-drill",
+    "slug": "master-toolkit-128p",
+    "filename": "04_Master_Toolkit_128P_Impact_Drill_R749.jpg",
+    "title": "128-Piece Impact Drill & Mechanics Master Toolkit",
+    "subtitle": "Brushless 48V Impact Driver + 2x Lithium Batteries in Heavy Blow-Mold Case",
+    "solution": "48V brushless cordless impact drill + 2 lithium batteries, sockets, ratchet and heavy-duty hand tools in a rugged carry case.",
+    "price": 749,
+    "original_price": 3299,
+    "discount": "-77%",
+    "image": "images/products/04_Master_Toolkit_128P_Impact_Drill_R749.jpg",
+    "fallback_image": "images/products/04_Master_Toolkit_128P_Impact_Drill_R749.jpg",
+    "category": "DIY & Power Tools",
+    "badge": "Complete Mechanic Set - 77% OFF",
+    "rating": 4.9,
+    "reviewsCount": 427,
+    "stock": 12,
+    "active": true,
+    "variants": [
+      {
+        "name": "Industrial Green Pro Case",
+        "color": "#15803d",
+        "img": "images/products/04_Master_Toolkit_128P_Impact_Drill_R749.jpg"
+      },
+      {
+        "name": "Heavy Yellow Mechanics Case",
+        "color": "#ca8a04",
+        "img": "images/products/04_Master_Toolkit_128P_Impact_Drill_R749.jpg"
+      }
+    ]
+  },
+  {
+    "id": "anti-load-shedding-power-station",
+    "slug": "solar-power-station-500w",
+    "filename": "05_Anti_Load_Shedding_Power_Station_R699.jpg",
+    "title": "500W Anti-Load Shedding Solar Power Station",
+    "subtitle": "Pure Sine Wave Portable Solar Generator + Free Solar Panel (220V/12V/USB)",
+    "solution": "Keeps your Wi-Fi router, TV, lamps and smartphones powered for 4-6 hours during Eskom load shedding. Solar panel included.",
+    "price": 699,
+    "original_price": 3999,
+    "discount": "-83%",
+    "image": "images/products/05_Anti_Load_Shedding_Power_Station_R699.jpg",
+    "fallback_image": "images/products/05_Anti_Load_Shedding_Power_Station_R699.jpg",
+    "category": "Electronics & Solar",
+    "badge": "Eskom Stage 6 Shield - 83% OFF",
+    "rating": 5,
+    "reviewsCount": 639,
+    "stock": 11,
+    "active": true,
+    "variants": [
+      {
+        "name": "500W Solar Kit + Panel",
+        "color": "#ea580c",
+        "img": "images/products/05_Anti_Load_Shedding_Power_Station_R699.jpg"
+      },
+      {
+        "name": "500W Cyber Grey Edition",
+        "color": "#374151",
+        "img": "images/products/05_Anti_Load_Shedding_Power_Station_R699.jpg"
+      }
+    ]
+  },
+  {
+    "id": "laser-level-4d-16lines-tripod",
+    "slug": "laser-level-4d-16lines",
+    "filename": "06_Laser_Level_4D_16Lines_Tripod_R549.jpg",
+    "title": "4D 16-Line Green Beam Laser Level with Tripod",
+    "subtitle": "360° Self-Leveling Cross-Line Laser with 1.2m Tripod, Remote & 2 Batteries",
+    "solution": "4x brighter green laser visible under South African daylight. Includes 1.2m tripod and remote for ceilings, tiles and framing.",
+    "price": 549,
+    "original_price": 2499,
+    "discount": "-78%",
+    "image": "images/products/06_Laser_Level_4D_16Lines_Tripod_R549.jpg",
+    "fallback_image": "images/products/06_Laser_Level_4D_16Lines_Tripod_R549.jpg",
+    "category": "DIY & Power Tools",
+    "badge": "Builder Grade - 78% OFF",
+    "rating": 4.8,
+    "reviewsCount": 215,
+    "stock": 18,
+    "active": true,
+    "variants": [
+      {
+        "name": "Green Beam + 1.2m Tripod",
+        "color": "#16a34a",
+        "img": "images/products/06_Laser_Level_4D_16Lines_Tripod_R549.jpg"
+      }
+    ]
+  },
+  {
+    "id": "solar-security-camera-4g-ptz",
+    "slug": "solar-4g-security-camera",
+    "filename": "07_Solar_Security_Camera_4G_PTZ_R499.jpg",
+    "title": "Solar 4G LTE PTZ 360° Outdoor Security Camera",
+    "subtitle": "100% Wire-Free CCTV with Solar Panel, Night Vision & Motion Siren",
+    "solution": "100% wire-free, no Eskom power and no Wi-Fi needed! Runs on 4G SIM card with 360° auto-tracking and siren alert.",
+    "price": 499,
+    "original_price": 2899,
+    "discount": "-83%",
+    "image": "images/products/07_Solar_Security_Camera_4G_PTZ_R499.jpg",
+    "fallback_image": "images/products/07_Solar_Security_Camera_4G_PTZ_R499.jpg",
+    "category": "Security & Smart Home",
+    "badge": "Farm & Home Security - 83% OFF",
+    "rating": 4.9,
+    "reviewsCount": 461,
+    "stock": 25,
+    "active": true,
+    "variants": [
+      {
+        "name": "4G Solar PTZ (All SA Networks)",
+        "color": "#ffffff",
+        "img": "images/products/07_Solar_Security_Camera_4G_PTZ_R499.jpg"
+      },
+      {
+        "name": "Stealth Black Edition",
+        "color": "#18181b",
+        "img": "images/products/07_Solar_Security_Camera_4G_PTZ_R499.jpg"
+      }
+    ]
+  },
+  {
+    "id": "dual-basket-double-airfryer-8l",
+    "slug": "dual-basket-airfryer-8l",
+    "filename": "08_Dual_Basket_Double_AirFryer_8L_R699.jpg",
+    "title": "8.0L Dual-Basket Double-Zone Air Fryer",
+    "subtitle": "Dual 4.0L Independent Baskets with Glass Windows & Sync Cook Technology",
+    "solution": "Dual independent cooking zones with viewing windows: cook crispy chicken on one side and chips on the other simultaneously.",
+    "price": 699,
+    "original_price": 2999,
+    "discount": "-77%",
+    "image": "images/products/08_Dual_Basket_Double_AirFryer_8L_R699.jpg",
+    "fallback_image": "images/products/08_Dual_Basket_Double_AirFryer_8L_R699.jpg",
+    "category": "Kitchen Appliances",
+    "badge": "Family XL Size - 77% OFF",
+    "rating": 4.9,
+    "reviewsCount": 542,
+    "stock": 17,
+    "active": true,
+    "variants": [
+      {
+        "name": "Piano Black & Rose Gold",
+        "color": "#1f2937",
+        "img": "images/products/08_Dual_Basket_Double_AirFryer_8L_R699.jpg"
+      },
+      {
+        "name": "Brushed Stainless Steel",
+        "color": "#9ca3af",
+        "img": "images/products/08_Dual_Basket_Double_AirFryer_8L_R699.jpg"
+      }
+    ]
+  },
+  {
+    "id": "countertop-ice-maker-machine",
+    "slug": "countertop-ice-maker",
+    "filename": "09_Countertop_Ice_Maker_Machine_R699.jpg",
+    "title": "Portable Countertop Bullet Ice Maker Machine",
+    "subtitle": "Fast 9 Ice Bullets in 6 Minutes (12kg Daily Capacity) with Auto-Clean Function",
+    "solution": "Produces 9 bullet ice cubes every 6 minutes (12kg daily). Essential for summer braais and 35°C outdoor gatherings.",
+    "price": 699,
+    "original_price": 2999,
+    "discount": "-77%",
+    "image": "images/products/09_Countertop_Ice_Maker_Machine_R699.jpg",
+    "fallback_image": "images/products/09_Countertop_Ice_Maker_Machine_R699.jpg",
+    "category": "Kitchen Appliances",
+    "badge": "Summer Braai Essential - 77% OFF",
+    "rating": 4.9,
+    "reviewsCount": 339,
+    "stock": 15,
+    "active": true,
+    "variants": [
+      {
+        "name": "Stainless Silver Edition",
+        "color": "#cbd5e1",
+        "img": "images/products/09_Countertop_Ice_Maker_Machine_R699.jpg"
+      },
+      {
+        "name": "Midnight Black Gloss",
+        "color": "#0f172a",
+        "img": "images/products/09_Countertop_Ice_Maker_Machine_R699.jpg"
+      }
+    ]
+  },
+  {
+    "id": "stand-mixer-6-5l-inox-1500w",
+    "slug": "stand-mixer-6-5l-inox",
+    "filename": "10_Stand_Mixer_6.5L_Inox_1500W_R597.jpg",
+    "title": "Professional 6.5L Inox Planetary Stand Mixer",
+    "subtitle": "1500W Heavy-Duty Pure Copper Motor with 6 Speeds & 3 Attachments",
+    "solution": "Heavy-duty 1500W mixer easily kneads stiff bread dough, vetkoek / magwinya, and batches for large family feasts.",
+    "price": 597,
+    "original_price": 2899,
+    "discount": "-79%",
+    "image": "images/products/10_Stand_Mixer_6.5L_Inox_1500W_R597.jpg",
+    "fallback_image": "images/products/10_Stand_Mixer_6.5L_Inox_1500W_R597.jpg",
+    "category": "Kitchen Appliances",
+    "badge": "Bakers Choice - 79% OFF",
+    "rating": 4.9,
+    "reviewsCount": 388,
+    "stock": 13,
+    "active": true,
+    "variants": [
+      {
+        "name": "Inox Silver 6.5L",
+        "color": "#e2e8f0",
+        "img": "images/products/10_Stand_Mixer_6.5L_Inox_1500W_R597.jpg"
+      },
+      {
+        "name": "Vintage Red 6.5L",
+        "color": "#dc2626",
+        "img": "images/products/10_Stand_Mixer_6.5L_Inox_1500W_R597.jpg"
+      }
+    ]
+  },
+  {
+    "id": "submersible-jojo-water-pump",
+    "slug": "submersible-jojo-pump",
+    "filename": "11_Submersible_JoJo_Water_Pump_R497.jpg",
+    "title": "Submersible JoJo Tank & Borehole Water Pump",
+    "subtitle": "1.0HP Stainless Steel Deep Well & Tank Pump with Auto-Float Switch",
+    "solution": "1.0HP stainless steel pump to boost water pressure from your JoJo tank or borehole into your home and garden irrigation.",
+    "price": 497,
+    "original_price": 2399,
+    "discount": "-79%",
+    "image": "images/products/11_Submersible_JoJo_Water_Pump_R497.jpg",
+    "fallback_image": "images/products/11_Submersible_JoJo_Water_Pump_R497.jpg",
+    "category": "Garden & Water",
+    "badge": "Water Security Hero - 79% OFF",
+    "rating": 4.8,
+    "reviewsCount": 274,
+    "stock": 21,
+    "active": true,
+    "variants": [
+      {
+        "name": "1.0HP Stainless Steel Model",
+        "color": "#94a3b8",
+        "img": "images/products/11_Submersible_JoJo_Water_Pump_R497.jpg"
+      }
+    ]
+  },
+  {
+    "id": "smart-4k-projector-120in-cinema",
+    "slug": "smart-4k-android-projector",
+    "filename": "12_Smart_4K_Projector_120in_Cinema_R597.jpg",
+    "title": "Smart 4K Android Portable Cinema Projector",
+    "subtitle": "120-Inch Giant Screen with 180° Rotating Base, Netflix, YouTube & Wi-Fi 6",
+    "solution": "120-inch cinema display with 180° swivel stand, built-in Netflix and YouTube for Springbok rugby matches and family movie nights.",
+    "price": 597,
+    "original_price": 3499,
+    "discount": "-83%",
+    "image": "images/products/12_Smart_4K_Projector_120in_Cinema_R597.jpg",
+    "fallback_image": "images/products/12_Smart_4K_Projector_120in_Cinema_R597.jpg",
+    "category": "Electronics & Audio",
+    "badge": "Springbok Cinema - 83% OFF",
+    "rating": 5,
+    "reviewsCount": 612,
+    "stock": 19,
+    "active": true,
+    "variants": [
+      {
+        "name": "Classic White 180° Rotatable",
+        "color": "#ffffff",
+        "img": "images/products/12_Smart_4K_Projector_120in_Cinema_R597.jpg"
+      },
+      {
+        "name": "Matte Obsidian Black",
+        "color": "#18181b",
+        "img": "images/products/12_Smart_4K_Projector_120in_Cinema_R597.jpg"
+      }
+    ]
+  },
+  {
+    "id": "portable-mini-fridge-10l-12v-220v",
+    "slug": "portable-mini-fridge-10l",
+    "filename": "13_Portable_Mini_Fridge_10L_12V_220V_R599.jpg",
+    "title": "10L Portable Car & Home Mini Refrigerator",
+    "subtitle": "Dual 12V DC Vehicle Cigarette Lighter & 220V Home Wall Plug Cooler/Warmer",
+    "solution": "Dual 12V (bakkie cigarette lighter) and 220V (home plug) switches. Keeps drinks ice-cold on long holiday road trips.",
+    "price": 599,
+    "original_price": 2499,
+    "discount": "-76%",
+    "image": "images/products/13_Portable_Mini_Fridge_10L_12V_220V_R599.jpg",
+    "fallback_image": "images/products/13_Portable_Mini_Fridge_10L_12V_220V_R599.jpg",
+    "category": "Appliances & Travel",
+    "badge": "Holiday Road Trip - 76% OFF",
+    "rating": 4.8,
+    "reviewsCount": 289,
+    "stock": 16,
+    "active": true,
+    "variants": [
+      {
+        "name": "Arctic White Glass Mirror",
+        "color": "#f8fafc",
+        "img": "images/products/13_Portable_Mini_Fridge_10L_12V_220V_R599.jpg"
+      },
+      {
+        "name": "Matte Black Mirror Door",
+        "color": "#0f172a",
+        "img": "images/products/13_Portable_Mini_Fridge_10L_12V_220V_R599.jpg"
+      }
+    ]
+  },
+  {
+    "id": "smokeless-indoor-electric-grill-2000w",
+    "slug": "smokeless-electric-grill-2000w",
+    "filename": "14_Smokeless_Indoor_Electric_Grill_2000W_R599.jpg",
+    "title": "2000W Smokeless Indoor Electric Grill",
+    "subtitle": "180° Flat Open Tabletop Braai Grill with Non-Stick Ribbed & Flat Plates",
+    "solution": "Opens 180° flat with non-stick grill plates to braai juicy boerewors and steaks indoors without smoke.",
+    "price": 599,
+    "original_price": 2199,
+    "discount": "-73%",
+    "image": "images/products/14_Smokeless_Indoor_Electric_Grill_2000W_R599.jpg",
+    "fallback_image": "images/products/14_Smokeless_Indoor_Electric_Grill_2000W_R599.jpg",
+    "category": "Kitchen Appliances",
+    "badge": "Indoor Boerewors Master - 73% OFF",
+    "rating": 4.9,
+    "reviewsCount": 356,
+    "stock": 20,
+    "active": true,
+    "variants": [
+      {
+        "name": "Brushed Stainless Steel 2000W",
+        "color": "#94a3b8",
+        "img": "images/products/14_Smokeless_Indoor_Electric_Grill_2000W_R599.jpg"
+      }
+    ]
+  },
+  {
+    "id": "folding-suitcase-braai-stainless",
+    "slug": "folding-suitcase-braai",
+    "filename": "15_Folding_Suitcase_Braai_Stainless_R449.jpg",
+    "title": "Stainless Steel Folding Suitcase Braai Grill",
+    "subtitle": "Ultra-Compact 10-Second Foldable Stainless Braai Stand with Carry Case",
+    "solution": "Folds completely flat like a briefcase in 10 seconds. Fits easily into any car boot or bakkie for beach and camping braais.",
+    "price": 449,
+    "original_price": 1799,
+    "discount": "-75%",
+    "image": "images/products/15_Folding_Suitcase_Braai_Stainless_R449.jpg",
+    "fallback_image": "images/products/15_Folding_Suitcase_Braai_Stainless_R449.jpg",
+    "category": "Outdoor & Braai",
+    "badge": "Mzansi Braai Heritage - 75% OFF",
+    "rating": 4.8,
+    "reviewsCount": 415,
+    "stock": 31,
+    "active": true,
+    "variants": [
+      {
+        "name": "Premium Heavy Inox Braai",
+        "color": "#cbd5e1",
+        "img": "images/products/15_Folding_Suitcase_Braai_Stainless_R449.jpg"
+      }
+    ]
+  },
+  {
+    "id": "espresso-coffee-machine-20bar",
+    "slug": "espresso-machine-20bar",
+    "filename": "16_Espresso_Coffee_Machine_20Bar_R699.jpg",
+    "title": "20-Bar Espresso Machine with Milk Frother",
+    "subtitle": "Italian High-Pressure Pump with Thermo-Block & Professional Milk Steamer",
+    "solution": "Italian 20-Bar high-pressure pump with commercial steam milk wand for barista-style espressos and frothy cappuccinos at home.",
+    "price": 699,
+    "original_price": 2899,
+    "discount": "-76%",
+    "image": "images/products/16_Espresso_Coffee_Machine_20Bar_R699.jpg",
+    "fallback_image": "images/products/16_Espresso_Coffee_Machine_20Bar_R699.jpg",
+    "category": "Kitchen Appliances",
+    "badge": "Barista Café Quality - 76% OFF",
+    "rating": 4.9,
+    "reviewsCount": 381,
+    "stock": 14,
+    "active": true,
+    "variants": [
+      {
+        "name": "Stainless Retro Barista Edition",
+        "color": "#e2e8f0",
+        "img": "images/products/16_Espresso_Coffee_Machine_20Bar_R699.jpg"
+      },
+      {
+        "name": "Matte Espresso Black",
+        "color": "#18181b",
+        "img": "images/products/16_Espresso_Coffee_Machine_20Bar_R699.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cordless-angle-grinder-48v",
+    "slug": "cordless-angle-grinder-48v",
+    "filename": "17_Cordless_Angle_Grinder_48V_R499.jpg",
+    "title": "Brushless Cordless Angle Grinder 125mm (2 Bat)",
+    "subtitle": "Heavy-Duty 125mm Cordless Cutter with 2x High-Capacity 48V Batteries",
+    "solution": "Cut through steel, roof sheets, tiles and masonry anywhere on your property without extension cords or generators.",
+    "price": 499,
+    "original_price": 2399,
+    "discount": "-79%",
+    "image": "images/products/17_Cordless_Angle_Grinder_48V_R499.jpg",
+    "fallback_image": "images/products/17_Cordless_Angle_Grinder_48V_R499.jpg",
+    "category": "DIY & Power Tools",
+    "badge": "Pro Metalworker - 79% OFF",
+    "rating": 4.9,
+    "reviewsCount": 329,
+    "stock": 22,
+    "active": true,
+    "variants": [
+      {
+        "name": "48V Brushless Dual Battery Kit",
+        "color": "#0284c7",
+        "img": "images/products/17_Cordless_Angle_Grinder_48V_R499.jpg"
+      },
+      {
+        "name": "Heavy Duty Yellow Edition",
+        "color": "#eab308",
+        "img": "images/products/17_Cordless_Angle_Grinder_48V_R499.jpg"
+      }
+    ]
+  },
+  {
+    "id": "smart-robot-vacuum-wet-mop",
+    "slug": "smart-robot-vacuum-mop",
+    "filename": "18_Smart_Robot_Vacuum_Wet_Mop_R649.jpg",
+    "title": "Intelligent 3-in-1 Robot Vacuum & Wet Mop",
+    "subtitle": "Sweep, Vacuum & Mop with Anti-Drop Gyro Navigation & Auto Charging Dock",
+    "solution": "3-in-1 sweeping, vacuuming and wet mopping for tile floors with auto-return docking and LiDAR smart navigation.",
+    "price": 649,
+    "original_price": 3299,
+    "discount": "-80%",
+    "image": "images/products/18_Smart_Robot_Vacuum_Wet_Mop_R649.jpg",
+    "fallback_image": "images/products/18_Smart_Robot_Vacuum_Wet_Mop_R649.jpg",
+    "category": "Home Appliances",
+    "badge": "Effortless Cleaning - 80% OFF",
+    "rating": 4.9,
+    "reviewsCount": 472,
+    "stock": 15,
+    "active": true,
+    "variants": [
+      {
+        "name": "Pearl White Gloss",
+        "color": "#f8fafc",
+        "img": "images/products/18_Smart_Robot_Vacuum_Wet_Mop_R649.jpg"
+      },
+      {
+        "name": "Midnight Carbon Black",
+        "color": "#0f172a",
+        "img": "images/products/18_Smart_Robot_Vacuum_Wet_Mop_R649.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cordless-stick-vacuum-cyclone",
+    "slug": "cordless-stick-vacuum-25kpa",
+    "filename": "19_Cordless_Stick_Vacuum_Cyclone_R599.jpg",
+    "title": "2-in-1 Cordless Lightweight Stick Vacuum (25Kpa)",
+    "subtitle": "25,000Pa High-Power Cyclone Suction with LED Motorized Floor Head",
+    "solution": "High-power 25Kpa cyclone suction with front LED headlights to illuminate dust and debris under beds and furniture.",
+    "price": 599,
+    "original_price": 2699,
+    "discount": "-78%",
+    "image": "images/products/19_Cordless_Stick_Vacuum_Cyclone_R599.jpg",
+    "fallback_image": "images/products/19_Cordless_Stick_Vacuum_Cyclone_R599.jpg",
+    "category": "Home Appliances",
+    "badge": "Dyson-Grade Power - 78% OFF",
+    "rating": 4.8,
+    "reviewsCount": 365,
+    "stock": 18,
+    "active": true,
+    "variants": [
+      {
+        "name": "Metallic Red & Titanium",
+        "color": "#dc2626",
+        "img": "images/products/19_Cordless_Stick_Vacuum_Cyclone_R599.jpg"
+      },
+      {
+        "name": "Deep Space Purple",
+        "color": "#7c3aed",
+        "img": "images/products/19_Cordless_Stick_Vacuum_Cyclone_R599.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cordless-car-polisher-buffer",
+    "slug": "cordless-car-polisher-buffer",
+    "filename": "20_Cordless_Car_Polisher_Buffer_R449.jpg",
+    "title": "Cordless Orbital Car Polisher & Waxing Buffer",
+    "subtitle": "6-Speed Variable Dual-Action Buffer with Foam, Wool & Microfiber Pads Kit",
+    "solution": "Cordless dual-action orbital buffer to remove swirls, apply wax and restore showroom shine to your car with zero arm fatigue.",
+    "price": 449,
+    "original_price": 1899,
+    "discount": "-76%",
+    "image": "images/products/20_Cordless_Car_Polisher_Buffer_R449.jpg",
+    "fallback_image": "images/products/20_Cordless_Car_Polisher_Buffer_R449.jpg",
+    "category": "Automotive & DIY",
+    "badge": "Showroom Shine - 76% OFF",
+    "rating": 4.9,
+    "reviewsCount": 312,
+    "stock": 24,
+    "active": true,
+    "variants": [
+      {
+        "name": "Pro 6-Speed Dual Action Kit",
+        "color": "#2563eb",
+        "img": "images/products/20_Cordless_Car_Polisher_Buffer_R449.jpg"
+      },
+      {
+        "name": "Performance Orange Edition",
+        "color": "#ea580c",
+        "img": "images/products/20_Cordless_Car_Polisher_Buffer_R449.jpg"
+      }
+    ]
+  },
+  {
+    "id": "defy-combo",
+    "slug": "defy-combo",
+    "filename": "combo-silver.jpg",
+    "title": "Defy 20L Digital Mirror Microwave & 1.7L Cordless Kettle Combo",
+    "subtitle": "Defy 2-in-1 Essential Kitchen Combo: 20L Electronic Microwave Oven (700W) & 1.7L Rapid-Boil Kettle (2200W)",
+    "solution": "Defy 2-Piece Kitchen Master Combo - pairing 20L Digital Mirror Finish Microwave with matching 1.7L Stainless Steel Cordless Fast-Boil Kettle.",
+    "price": 147,
+    "original_price": 2899,
+    "discount": "-95%",
+    "image": "combo-silver.jpg",
+    "fallback_image": "combo-silver.jpg",
+    "gallery": [
+      "combo-silver.jpg",
+      "combo-kettle.jpg",
+      "combo-microwave-open.jpg",
+      "combo-microwave-front.png"
+    ],
+    "category": "Appliances",
+    "badge": "Black November Super Deal",
+    "rating": 4.9,
+    "reviewsCount": 328,
+    "stock": 9,
+    "active": true,
+    "variants": [
+      {
+        "name": "Metallic Silver",
+        "color": "#9ca3af",
+        "img": "combo-silver.jpg"
+      },
+      {
+        "name": "Midnight Black",
+        "color": "#111827",
+        "img": "combo-black.jpg"
+      }
+    ]
+  },
+  {
+    "id": "popcorn-machine-starter-kit",
+    "slug": "popcorn-machine-starter-kit",
+    "filename": "21_Commercial_Popcorn_Machine_Starter_Kit_R797.jpg",
+    "title": "SnackKing Commercial 8oz Retro Popcorn Machine Starter Kit",
+    "subtitle": "Family Income Starter Kit • Earn R10,000+ Monthly • 450% Profit Margin • 220V Electric",
+    "solution": "High-output commercial popcorn machine with stainless steel kettle, warming light and deck. Complete starter kit to start earning daily cash at schools, taxi ranks, church events and home cinema parties.",
+    "price": 797,
+    "original_price": 1999,
+    "discount": "-60%",
+    "image": "images/products/popcorn_catalog_red.jpg",
+    "fallback_image": "images/products/popcorn_catalog_red.jpg",
+    "gallery": [
+      "images/products/popcorn_catalog_red.jpg",
+      "images/products/popcorn_catalog_angle.jpg",
+      "images/products/popcorn_catalog_black.jpg",
+      "images/products/popcorn_catalog_silver.jpg",
+      "images/products/popcorn_catalog_kit.jpg"
+    ],
+    "category": "Commercial Appliances & Small Business",
+    "badge": "Family Income Starter Kit - 60% OFF",
+    "rating": 4.9,
+    "reviewsCount": 468,
+    "stock": 14,
+    "active": true,
+    "variants": [
+      {
+        "name": "Carnival Retro Red & Gold",
+        "color": "#dc2626",
+        "img": "images/products/popcorn_catalog_red.jpg"
+      },
+      {
+        "name": "Vintage Cinema Matte Black",
+        "color": "#1f2937",
+        "img": "images/products/popcorn_catalog_black.jpg"
+      },
+      {
+        "name": "Inox Stainless Steel & Gold",
+        "color": "#94a3b8",
+        "img": "images/products/popcorn_catalog_silver.jpg"
+      }
+    ]
+  },
+  {
+    "id": "hisense-14kg-top-loader-washing-machine",
+    "slug": "hisense-14kg-top-loader-washing-machine",
+    "filename": "hisense-wm.jpg",
+    "title": "Hisense 14kg Top Loader Washing Machine - Premium Black",
+    "subtitle": "Model WT3K1423UB • iBubble Technology • Smart Fuzzy Logic Control • 8 Wash Programs • Soft-Close Glass Lid",
+    "solution": "High-capacity 14kg top loader engineered for large family laundry. Features smart fuzzy weight sensing, dual water inlets, power-saving inverter motor, and iBubble fabric protection.",
+    "price": 999,
+    "original_price": 4899,
+    "discount": "-80%",
+    "image": "images/products/hisense-wm.jpg",
+    "fallback_image": "images/products/hisense-wm.jpg",
+    "gallery": [
+      "images/products/hisense-wm.jpg",
+      "images/products/wm-10.jpg",
+      "images/products/wm-02.jpg",
+      "images/products/wm-06.jpg",
+      "images/products/wm-11.jpg",
+      "images/products/wm-03.jpg"
+    ],
+    "category": "Large Appliances & Washing Machines",
+    "badge": "Black Friday Special - 80% OFF",
+    "rating": 4.7,
+    "reviewsCount": 142,
+    "stock": 7,
+    "active": true,
+    "variants": [
+      {
+        "name": "Premium Black",
+        "color": "#111827",
+        "img": "images/products/hisense-wm.jpg"
+      },
+      {
+        "name": "Titanium Silver",
+        "color": "#94a3b8",
+        "img": "images/products/wm-02.jpg"
+      }
+    ]
+  }
+]

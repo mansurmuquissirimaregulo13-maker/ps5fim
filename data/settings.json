@@ -1,0 +1,40 @@
+{
+  "activeGateway": "creapay",
+  "adminPin": "takealot2026",
+  "emailSendingPaused": true,
+  "creapay": {
+    "enabled": true,
+    "apiUrl": "https://pay.africagrabpoint.com/api/public/v1/orders",
+    "apiKey": "cp_80ef8e4f3af530e285c0f89e80db47707d9b6f802d4f8531107357db7568b2fe",
+    "webhookSecret": "cp_80ef8e4f3af530e285c0f89e80db47707d9b6f802d4f8531107357db7568b2fe",
+    "scriptUrl": "https://pay.africagrabpoint.com/embed.js"
+  },
+  "stripe": {
+    "publishableKey": "",
+    "secretKey": ""
+  },
+  "paystack": {
+    "publicKey": "pk_live_bc75401ffbdd4db7b0478916562fdb14a8d77423",
+    "secretKey": "",
+    "splitCode": "SPL_8ZpdS87KaP"
+  },
+  "tracking": {
+    "utmifyScriptUrl": "https://cdn.utmify.com.br/scripts/utms/latest.js",
+    "utmifyPixelId": "GlUfzIfe4VncAhDAHAMfjHoC2NI12SdfVTP3",
+    "utmifyToken": "GlUfzIfe4VncAhDAHAMfjHoC2NI12SdfVTP3",
+    "facebookPixelIds": "1714011560089761, 10059558577435746, 2228014534653917, 1491562218738554, 4179716432354886, 719500600851650",
+    "customHeadHtml": "",
+    "utmifyCurrency": "EUR"
+  },
+  "fees": {
+    "enabled": false,
+    "name": "Express Delivery & Tracking",
+    "amount": 0
+  },
+  "financialRates": {
+    "stripePercent": 2.9,
+    "stripeFixed": 2,
+    "payoutPercent": 5
+  },
+  "updatedAt": "2026-10-16T00:44:00.000Z"
+}

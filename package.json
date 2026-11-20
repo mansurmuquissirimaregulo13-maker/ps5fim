@@ -1,0 +1,9 @@
+{
+  "name": "mansur-takealot",
+  "version": "1.0.0",
+  "description": "MANSUR Takealot Store with CreaPay and Paystack integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
