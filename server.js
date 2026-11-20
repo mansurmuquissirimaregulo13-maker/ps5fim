@@ -147,8 +147,13 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Static routing
-  let filePath = path.join(PUBLIC_DIR, pathname);
-  if (pathname === '/' || pathname === '') {
+  let cleanPath = pathname;
+  if (cleanPath.startsWith('/deals/')) {
+    cleanPath = cleanPath.replace(/^\/deals\//, '/');
+  }
+
+  let filePath = path.join(PUBLIC_DIR, cleanPath);
+  if (cleanPath === '/' || cleanPath === '') {
     filePath = path.join(PUBLIC_DIR, 'index.html');
   }
 
