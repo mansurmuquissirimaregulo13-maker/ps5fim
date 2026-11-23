@@ -934,9 +934,9 @@
               throw new Error((order && order.error) || 'Order not found');
             })
             .catch(function(err) {
-              console.warn('[track] Local API failed, trying live backend:', err);
-              // 2. Automatic fallback to live backend
-              fetch('https://subwaypaysa.tech/api/order?order=' + encodeURIComponent(_urlOrderId))
+              console.warn('[track] Local API failed, trying secondary query:', err);
+              // 2. Automatic fallback to /api/order?id=
+              fetch('/api/order?id=' + encodeURIComponent(_urlOrderId))
                 .then(function(r) { return r.json(); })
                 .then(function(order) {
                   if (order && !order.error && order.order_id) {

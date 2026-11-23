@@ -64,8 +64,8 @@ function listInstances() {
       instances.push({
         slug,
         port,
-        storeUrl: `https://subwaypaysa.tech/${slug}/`,
-        adminUrl: `https://subwaypaysa.tech/${slug}/admin.html`,
+        storeUrl: `https://ps5fim-s11m.vercel.app/${slug}/`,
+        adminUrl: `https://ps5fim-s11m.vercel.app/${slug}/admin.html`,
         adminPin,
         activeGateway
       });
@@ -198,7 +198,7 @@ module.exports = async function handler(req, res) {
         `PAYSTACK_SECRET_KEY=${initialSettings.paystack.secretKey}`,
         `PAYSTACK_SPLIT_CODE=${initialSettings.paystack.splitCode}`,
         `RESEND_API_KEY=`,
-        `EMAIL_FROM="Takealot Orders <orders@take.baridi.shop>"`
+        `EMAIL_FROM="Takealot Orders <onboarding@resend.dev>"`
       ].join('\n');
       fs.writeFileSync(path.join(targetDir, '.env'), envContent, 'utf8');
 
@@ -233,8 +233,8 @@ location ^~ /${slug}/ {
         message: `Instância /${slug}/ criada e online com sucesso!`,
         slug: slug,
         port: port,
-        storeUrl: `https://subwaypaysa.tech/${slug}/`,
-        adminUrl: `https://subwaypaysa.tech/${slug}/admin.html`,
+        storeUrl: `https://ps5fim-s11m.vercel.app/${slug}/`,
+        adminUrl: `https://ps5fim-s11m.vercel.app/${slug}/admin.html`,
         adminPin: adminPin,
         gateway: gateway
       };

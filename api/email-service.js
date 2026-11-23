@@ -4,7 +4,7 @@
 'use strict';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || (process.env.RESEND_TOKEN || '').trim() || Buffer.from('cmVfRTY1anI4Y2hfSncyU0dXWXpIMktVUWR6a0xDNTh0WXdL', 'base64').toString('utf8');
-const DEFAULT_FROM = process.env.RESEND_FROM || process.env.EMAIL_FROM || 'Takealot Orders <orders@take.baridi.shop>';
+const DEFAULT_FROM = process.env.RESEND_FROM || process.env.EMAIL_FROM || 'Takealot Orders <onboarding@resend.dev>';
 const FALLBACK_FROM = 'Takealot Orders <onboarding@resend.dev>';
 
 /**

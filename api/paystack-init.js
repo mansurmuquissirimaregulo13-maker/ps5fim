@@ -92,15 +92,10 @@ module.exports = async function handler(req, res) {
     const leadId = cleanPhone || (email ? email.replace(/[^a-zA-Z0-9_\\-]/g, '_') : '') || orderId;
     const leadPath = path.join(DATA_DIR, `abandoned_${leadId}.json`);
 
-    // Determine instance base URL from referer or request headers
-    const referer = (req.headers.referer || '').toLowerCase();
-    let instancePrefix = '/takealot';
-    if (referer.includes('/takealotmicro') || (process.env.PORT === '3003') || (process.env.INSTANCE_SLUG === 'takealotmicro')) {
-      instancePrefix = '/takealotmicro';
-    } else if (referer.includes('/takealot2') || (process.env.PORT === '3002') || (process.env.INSTANCE_SLUG === 'takealot2')) {
-      instancePrefix = '/takealot2';
-    }
-    const baseUrl = `https://subwaypaysa.tech${instancePrefix}`;
+    // Determine base URL dynamically from request host or environment
+    const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'ps5fim-s11m.vercel.app';
+    const proto = (req.headers['x-forwarded-proto'] || 'https');
+    const baseUrl = (process.env.SITE_URL || `${proto}://${host}`).replace(/\/+$/, '');
 
     const firstItem = (Array.isArray(body.items) && body.items[0]) || {};
     const leadSlug = body.product_slug || firstItem.slug || firstItem.id || '';
@@ -242,21 +237,12 @@ module.exports = async function handler(req, res) {
   // --------------------------------------------------------------
   if (mode === 'direct' || !isCreaPayActive) {
     try {
-      const referer = (req.headers.referer || '').toLowerCase();
-      let instancePrefix = '/takealot';
-      if (referer.includes('/takealotmicro') || (process.env.PORT === '3003') || (process.env.INSTANCE_SLUG === 'takealotmicro')) {
-        instancePrefix = '/takealotmicro';
-      } else if (referer.includes('/takealot2') || (process.env.PORT === '3002') || (process.env.INSTANCE_SLUG === 'takealot2')) {
-        instancePrefix = '/takealot2';
-      }
-      const baseUrl = `https://subwaypaysa.tech${instancePrefix}`;
-
       let callbackUrl = body.callbackUrl;
       if (callbackUrl) {
         const sep = callbackUrl.includes('?') ? '&' : '?';
         callbackUrl = `${callbackUrl}${sep}order=${orderId}&ref=${reference}`;
       } else {
-        callbackUrl = `${baseUrl}/sucesso.html?order=${orderId}&ref=${reference}`;
+        callbackUrl = `${baseUrl}/track.html?ref=${reference}&order=${orderId}`;
       }
 
       const initPayload = {

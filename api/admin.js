@@ -9,7 +9,7 @@ const path = require('path');
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 const RESEND_KEY = process.env.RESEND_API_KEY || '';
-const FROM_EMAIL = process.env.EMAIL_FROM || 'Takealot Orders <orders@take.baridi.shop>';
+const FROM_EMAIL = process.env.RESEND_FROM || process.env.EMAIL_FROM || 'Takealot Orders <onboarding@resend.dev>';
 
 // Target 300 emails per minute (5 emails/second) as supported by Resend
 const EMAILS_PER_MINUTE = parseInt(process.env.EMAILS_PER_MINUTE || '300', 10);
@@ -131,7 +131,7 @@ function renderOrderEmail(order) {
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateIso = del.toISOString().slice(0, 10);
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const trackingUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${order.order_id}`;
 
   const items = (Array.isArray(order.items) && order.items.length > 0)
     ? order.items
@@ -209,7 +209,7 @@ function renderOrderPlainText(order) {
 
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const trackingUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${order.order_id}`;
 
   const items = (Array.isArray(order.items) && order.items.length > 0)
     ? order.items
@@ -275,7 +275,7 @@ async function sendEmailToOriginalCustomer(order) {
       subject,
       html: html || plainText,
       text: plainText,
-      reply_to: 'support@take.baridi.shop'
+      reply_to: process.env.EMAIL_REPLY_TO || 'support@ps5fim-s11m.vercel.app'
     })
   });
 
@@ -311,7 +311,7 @@ function renderTransitEmail(order) {
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateIso = del.toISOString().slice(0, 10);
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const trackingUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${order.order_id}`;
 
   const items = (Array.isArray(order.items) && order.items.length > 0)
     ? order.items
@@ -349,7 +349,7 @@ function renderTransitPlainText(order) {
 
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const trackingUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${order.order_id}`;
 
   return [
     `TAKEALOT LOGISTICS & DELIVERY UPDATE`,
@@ -398,7 +398,7 @@ async function sendTransitEmailToOriginalCustomer(order) {
       subject,
       html: html || plainText,
       text: plainText,
-      reply_to: 'support@take.baridi.shop'
+      reply_to: process.env.EMAIL_REPLY_TO || 'support@ps5fim-s11m.vercel.app'
     })
   });
 

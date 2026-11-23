@@ -83,25 +83,27 @@ module.exports = async function handler(req, res) {
     const leadId = cleanPhone || (email ? email.replace(/[^a-zA-Z0-9_\-]/g, '_') : '') || orderId;
     const leadPath = path.join(DATA_DIR, `abandoned_${leadId}.json`);
 
-    const leadRecord = {
-      id: leadId,
-      orderId: orderId,
-      customer_name: name,
-      customer_email: email,
-      customer_phone: phone,
-      shipping_address: fullAddress,
-      product_title: orderTitle,
-      variant: variant,
-      quantity: quantity,
-      items: body.items || [],
-      cart_total: totalZar,
-      gateway: 'creapay',
-      bank: body.bank || 'Capitec / South Africa Card',
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      status: 'ABANDONED',
-      recovery_url: `https://subwaypaysa.tech/takealot/checkout.html?recover=${encodeURIComponent(leadId)}`
-    };
+      const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'ps5fim-s11m.vercel.app';
+      const siteUrl = (process.env.SITE_URL || 'https://' + host).replace(/\/+$/, '');
+      const leadRecord = {
+        id: leadId,
+        orderId: orderId,
+        customer_name: name,
+        customer_email: email,
+        customer_phone: phone,
+        shipping_address: fullAddress,
+        product_title: orderTitle,
+        variant: variant,
+        quantity: quantity,
+        items: body.items || [],
+        cart_total: totalZar,
+        gateway: 'creapay',
+        bank: body.bank || 'Capitec / South Africa Card',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: 'ABANDONED',
+        recovery_url: `${siteUrl}/order.html?recover=${encodeURIComponent(leadId)}`
+      };
     fs.writeFileSync(leadPath, JSON.stringify(leadRecord, null, 2), 'utf8');
   } catch (_) {}
 

