@@ -274,12 +274,12 @@ module.exports = async function handler(req, res) {
       : (Array.isArray(meta.items) && meta.items.length > 0)
         ? meta.items
         : [{
-            id: 'defy-combo',
-            title: 'Defy 20L Digital Mirror Microwave & 1.7L Cordless Kettle Combo',
-            variant: existing.variant || meta.variant || 'Metallic Silver',
+            id: 'ps5-gta6-bundle',
+            title: 'Sony PlayStation 5 Slim 500GB Console + Grand Theft Auto VI (GTA 6) Limited Bundle',
+            variant: existing.variant || meta.variant || 'Standard Bundle',
             price: amountZar,
-            quantity: 1,
-            img: 'combo-silver.jpg'
+            quantity: existing.quantity || 1,
+            img: 'ps5_gta6_hero.jpg'
           }];
 
     const orderRecord = {

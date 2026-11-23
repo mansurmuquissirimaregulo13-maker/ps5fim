@@ -1508,7 +1508,7 @@
           } catch(e) {}
         }
         try {
-          fetch('api/send_takealot_order_email.php', {
+          fetch('/api/send-order-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

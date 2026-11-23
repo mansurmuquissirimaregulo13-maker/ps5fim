@@ -102,6 +102,12 @@ module.exports = async function handler(req, res) {
       sendOrderToUtmify(orderRecord).catch(() => {});
     } catch (_) {}
 
+    // Dispatch Order Confirmation Email via Resend
+    try {
+      const { sendOrderConfirmation } = require('./email-service');
+      sendOrderConfirmation(orderRecord).catch(err => console.warn('[paystack-verify] Email notice:', err.message));
+    } catch (_) {}
+
     return res.status(200).json({
       success: true,
       orderId: orderId,

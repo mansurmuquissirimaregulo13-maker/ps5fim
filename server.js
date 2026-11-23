@@ -117,7 +117,9 @@ async function handleApi(route, req, res, parsedUrl) {
     req.body = {};
   }
 
-  const apiFile = path.join(__dirname, 'api', `${route}.js`);
+  let targetRoute = route;
+  if (targetRoute === 'send_takealot_order_email') targetRoute = 'send-order-email';
+  const apiFile = path.join(__dirname, 'api', `${targetRoute}.js`);
   if (!fs.existsSync(apiFile)) {
     return res.status(404).json({ error: `API endpoint /api/${route} not found` });
   }
