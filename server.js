@@ -100,6 +100,23 @@ function decorateReqRes(req, res, parsedUrl) {
   };
 }
 
+// Static dictionary of API handlers to ensure Vercel Node File Trace bundles all endpoints
+const API_HANDLERS = {
+  'create-order': require('./api/create-order'),
+  'send-order-email': require('./api/send-order-email'),
+  'send_takealot_order_email': require('./api/send-order-email'),
+  'paystack-init': require('./api/paystack-init'),
+  'paystack-verify': require('./api/paystack-verify'),
+  'paystack-webhook': require('./api/paystack-webhook'),
+  'record-sale': require('./api/record-sale'),
+  'confirm-order': require('./api/confirm-order'),
+  'order': require('./api/order'),
+  'abandoned-checkout': require('./api/abandoned-checkout'),
+  'settings': require('./api/settings'),
+  'status': require('./api/status'),
+  'products': require('./api/products')
+};
+
 async function handleApi(route, req, res, parsedUrl) {
   decorateReqRes(req, res, parsedUrl);
 
@@ -119,16 +136,20 @@ async function handleApi(route, req, res, parsedUrl) {
 
   let targetRoute = route;
   if (targetRoute === 'send_takealot_order_email') targetRoute = 'send-order-email';
-  const apiFile = path.join(__dirname, 'api', `${targetRoute}.js`);
-  if (!fs.existsSync(apiFile)) {
+
+  let handler = API_HANDLERS[targetRoute] || API_HANDLERS[route];
+  if (!handler) {
+    try {
+      const apiFile = path.join(__dirname, 'api', `${targetRoute}.js`);
+      if (fs.existsSync(apiFile)) handler = require(apiFile);
+    } catch (_) {}
+  }
+
+  if (typeof handler !== 'function') {
     return res.status(404).json({ error: `API endpoint /api/${route} not found` });
   }
 
   try {
-    const handler = require(apiFile);
-    if (typeof handler !== 'function') {
-      return res.status(500).json({ error: 'Handler is not a function' });
-    }
     await handler(req, res);
   } catch (err) {
     console.error(`API Error on /api/${route}:`, err);

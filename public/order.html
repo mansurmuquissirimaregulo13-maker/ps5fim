@@ -1602,14 +1602,21 @@
             }
           }
 
-          // 3. Fallback: Inline Lightbox Modal (Iframe directly on screen)
+          // 3. Fallback: Direct Secure Checkout Redirect if popup didn't trigger
           const checkoutUrl = (order && order.checkout_url)
             ? order.checkout_url
             : (order.access_code ? ('https://checkout.paystack.com/' + order.access_code) : '');
 
           if (checkoutUrl) {
-            btn.innerHTML = '<span>🔒 SECURE CHECKOUT READY</span>';
-            openCreaPayModal(checkoutUrl);
+            btn.innerHTML = '<span>🔒 OPENING SECURE CHECKOUT...</span>';
+            // Try in-page popup first, if blocked redirect directly to Paystack secure checkout
+            try {
+              if (window.PaystackPop) {
+                new window.PaystackPop().resumeTransaction(order.access_code);
+                return;
+              }
+            } catch (_) {}
+            window.location.href = checkoutUrl;
             return;
           }
 
@@ -1626,7 +1633,7 @@
 
         if (typeof order !== 'undefined' && order && (order.access_code || order.checkout_url)) {
           const fallbackUrl = order.checkout_url || ('https://checkout.paystack.com/' + order.access_code);
-          openCreaPayModal(fallbackUrl);
+          window.location.href = fallbackUrl;
         }
       }
     });
