@@ -187,7 +187,7 @@ module.exports = async function handler(req, res) {
       if (email && email.includes('@')) {
         try {
           const { sendAbandonedRecoveryEmail } = require('./email-service');
-          sendAbandonedRecoveryEmail({
+          await sendAbandonedRecoveryEmail({
             order_id: orderId,
             customer_name: name,
             customer_email: email,
