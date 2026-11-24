@@ -190,6 +190,7 @@ module.exports = async function handler(req, res) {
         orderId: orderId,
         checkout_token: cpData.checkout_token,
         access_code: cpData.access_code,
+        checkout_url: cpData.checkout_url || (cpData.access_code ? ('https://checkout.paystack.com/' + cpData.access_code) : ''),
         reference: finalRef,
         sale_id: cpData.sale_id,
         amount_minor: cpData.amount_minor || amountMinor,

