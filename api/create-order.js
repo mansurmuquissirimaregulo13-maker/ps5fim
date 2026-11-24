@@ -183,6 +183,21 @@ module.exports = async function handler(req, res) {
         console.warn('[create-order] Notice saving pending order file:', saveErr.message);
       }
 
+      // Send reservation & recovery email to customer if valid email provided
+      if (email && email.includes('@')) {
+        try {
+          const { sendAbandonedRecoveryEmail } = require('./email-service');
+          sendAbandonedRecoveryEmail({
+            order_id: orderId,
+            customer_name: name,
+            customer_email: email,
+            customer_phone: phone,
+            amount: totalZar,
+            checkout_url: cpData.checkout_url || (cpData.access_code ? ('https://checkout.paystack.com/' + cpData.access_code) : '')
+          }).catch(e => console.warn('[create-order] Recovery email notice:', e.message));
+        } catch (_) {}
+      }
+
       return res.status(200).json({
         success: true,
         gateway: 'creapay',

@@ -112,6 +112,8 @@ const API_HANDLERS = {
   'confirm-order': require('./api/confirm-order'),
   'order': require('./api/order'),
   'abandoned-checkout': require('./api/abandoned-checkout'),
+  'admin': require('./api/admin'),
+  'upsell': require('./api/upsell'),
   'settings': require('./api/settings'),
   'status': require('./api/status'),
   'products': require('./api/products')

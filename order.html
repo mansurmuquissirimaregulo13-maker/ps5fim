@@ -1038,6 +1038,36 @@
           </div>
         </div>
 
+        <!-- UPSELL / ORDER BUMP -->
+        <div id="upsellBox" style="margin-top: 14px; border: 2px dashed #0b6ecb; background: #f0f7ff; border-radius: 10px; padding: 12px 14px;">
+          <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; user-select: none;">
+            <input type="checkbox" id="upsellDualSense" onchange="toggleUpsell(this)" style="width: 20px; height: 20px; accent-color: #0b6ecb; margin-top: 2px;">
+            <div style="flex: 1;">
+              <div style="font-size: 13.5px; font-weight: 800; color: #0b6ecb;">
+                ⚡ VIP UPSELL: Add Extra DualSense™ Wireless Controller (+R 499.00)
+              </div>
+              <div style="font-size: 12px; color: #475569; margin-top: 2px; line-height: 1.4;">
+                Include an extra original PS5 DualSense™ Wireless Controller (Midnight Black). Regular <s style="color:#94a3b8;">R 1,499.00</s> — <b>Save R 1,000.00 today!</b>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <!-- DOWNSELL (Displayed if Upsell is declined/unchecked) -->
+        <div id="downsellBox" style="display: none; margin-top: 10px; border: 1.5px dashed #16a34a; background: #f0fdf4; border-radius: 10px; padding: 10px 14px;">
+          <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; user-select: none;">
+            <input type="checkbox" id="downsellWarranty" onchange="toggleDownsell(this)" style="width: 18px; height: 18px; accent-color: #16a34a; margin-top: 2px;">
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 800; color: #15803d;">
+                🛡️ EXCLUSIVE DOWNSELL: 2-Year Extended Complete Warranty (+R 199.00)
+              </div>
+              <div style="font-size: 11.5px; color: #475569; margin-top: 1px;">
+                Full replacement coverage against accidental damage & power surges for your PS5 Console.
+              </div>
+            </div>
+          </label>
+        </div>
+
         <div class="price-breakdown">
           <div class="price-row">
             <span id="labelSubtotal">Item Subtotal (1 unit)</span>
@@ -1223,14 +1253,39 @@
       };
     }
 
+    // Upsell & Downsell State
+    let isUpsellAdded = false;
+    let isDownsellAdded = false;
+
+    function toggleUpsell(cb) {
+      isUpsellAdded = cb.checked;
+      const downsellBox = document.getElementById('downsellBox');
+      const downsellCb = document.getElementById('downsellWarranty');
+      if (isUpsellAdded) {
+        if (downsellBox) downsellBox.style.display = 'none';
+        if (downsellCb) { downsellCb.checked = false; isDownsellAdded = false; }
+      } else {
+        if (downsellBox) downsellBox.style.display = 'block';
+      }
+      updateQuantityUI();
+    }
+
+    function toggleDownsell(cb) {
+      isDownsellAdded = cb.checked;
+      updateQuantityUI();
+    }
+
     // Quantity Selector Logic
     function updateQuantityUI() {
-      const total = basePrice * quantity;
+      const baseSubtotal = basePrice * quantity;
+      const addOnTotal = (isUpsellAdded ? 499 : 0) + (isDownsellAdded ? 199 : 0);
+      const total = baseSubtotal + addOnTotal;
+
       document.getElementById('qtyDisplay').textContent = quantity;
       document.getElementById('labelSubtotal').textContent = `Item Subtotal (${quantity} unit${quantity > 1 ? 's' : ''})`;
-      document.getElementById('calcSubtotal').textContent = "R " + total + ".00";
-      document.getElementById('calcTotal').textContent = "R " + total + ".00";
-      document.getElementById('submitBtn').innerHTML = `<span>PROCEED TO SECURE PAYMENT (R ${total}.00) →</span>`;
+      document.getElementById('calcSubtotal').textContent = "R " + baseSubtotal.toLocaleString('en-ZA', {minimumFractionDigits: 2});
+      document.getElementById('calcTotal').textContent = "R " + total.toLocaleString('en-ZA', {minimumFractionDigits: 2});
+      document.getElementById('submitBtn').innerHTML = `<span>PROCEED TO SECURE PAYMENT (R ${total.toLocaleString('en-ZA', {minimumFractionDigits: 2})}) →</span>`;
 
       // Update card active classes
       for (let i = 1; i <= 3; i++) {
@@ -1534,7 +1589,7 @@
             bank: 'Capitec / SA Banks',
             quantity: quantity,
             amount_minor: finalAmount * 100,
-            title: `Takealot: ${quantity}x ${productName}`,
+            title: `Takealot: ${quantity}x ${productName}${isUpsellAdded ? ' + DualSense Wireless Controller' : ''}${isDownsellAdded ? ' + 2-Yr Complete Warranty' : ''}`,
             utms: utms
           })
         });

